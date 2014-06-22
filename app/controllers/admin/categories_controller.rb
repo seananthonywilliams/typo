@@ -28,7 +28,11 @@ class Admin::CategoriesController < Admin::BaseController
     # THE FOLLOWING LINE HAD THE BUG:
     # Because there is no ID attribute for
     # a Category that has not been created yet
-    @category = Category.new #Category.find(params[:id])
+    if params[:id].nil?
+      @category = Category.new
+    else
+      @category = Category.find(params[:id])
+    end
     @category.attributes = params[:category]
     if request.post?
       respond_to do |format|
