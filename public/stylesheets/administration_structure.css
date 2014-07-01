@@ -199,5 +199,11 @@ label.editor {
 	border-bottom: 1px solid #00438a;
 }
 
-
+#merge_with_label {
+  width: 4em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block
+}
 
