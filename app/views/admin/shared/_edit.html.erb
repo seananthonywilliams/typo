@@ -5,8 +5,10 @@
 
 <% end %>
 
+<% if current_user.admin? and !@article.id.nil?%>
 <%= form_tag({:controller => "admin/content", :action => "merge", :id => @article.id}, :method => "put", :class => 'article') do %>
   <h4><%= _("Merge Articles") %></h4>
   <%= label_tag(:merge_with, "Article ID") %><%= text_field_tag :merge_with, nil, :size => 20 %>
   <%= submit_tag("Merge") %>
+<% end %>
 <% end %>
